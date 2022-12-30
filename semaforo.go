@@ -29,6 +29,7 @@ func main() {
 		semaforo <- struct{}{}
 
 		go func(semaforo <-chan struct{}) {
+			time.Sleep(1000 * time.Millisecond)
 			defer wp.Done()
 			fmt.Println(fmt.Sprintf("semaforo count: %d", len(semaforo)))
 			mx.Lock()
@@ -43,6 +44,7 @@ func main() {
 		}(semaforo)
 
 		go func(semaforo <-chan struct{}) {
+			time.Sleep(300 * time.Millisecond)
 			defer wp.Done()
 			fmt.Println(fmt.Sprintf("semaforo count: %d", len(semaforo)))
 			err := conditionalError()
@@ -60,7 +62,6 @@ func main() {
 }
 
 func conditionalError() error {
-	time.Sleep(500 * time.Millisecond)
 	numberRandom := rand.Int()
 	if numberRandom%2 == 0 {
 		return errors.New("this number is pair")
