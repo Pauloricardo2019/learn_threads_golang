@@ -27,11 +27,8 @@ func main() {
 		semaforo <- struct{}{}
 
 		go func(semaforo <-chan struct{}) {
-
 			defer wp.Done()
-
 			fmt.Println(fmt.Sprintf("semaforo position: %d", len(semaforo)))
-
 			err := conditionalError()
 			if err != nil {
 				fmt.Println("deu erro aqui.")
@@ -39,11 +36,8 @@ func main() {
 				return
 			}
 			<-semaforo
-
 		}(semaforo)
-
 		wp.Wait()
-
 		time.Sleep(time.Millisecond * 300)
 	}
 }
