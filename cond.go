@@ -37,7 +37,7 @@ func main() {
 	for !checkCondition() {
 		cond.Wait()
 	}
-
+ fmt.Println("finish process!")
 }
 
 func checkCondition() bool {
