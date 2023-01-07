@@ -38,6 +38,6 @@ func main() {
 			fmt.Println("goroutine 2: ", alf[i])
 		}
 	}()
-
+ fmt.Println("finish go routines!")
 	wp.Wait()
 }
