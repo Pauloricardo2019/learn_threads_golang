@@ -80,5 +80,5 @@ func main() {
 	c.L.Unlock()
 
 	wg.Wait()
-
+ fmt.Println("finish broadcast")
 }
