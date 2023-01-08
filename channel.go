@@ -22,5 +22,5 @@ func main() {
 	result := <-ch
 
 	fmt.Println("Result: ", result)
-
+  fmt.Println("finish channel")
 }
